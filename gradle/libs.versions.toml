@@ -4,5 +4,5 @@
 spring = "3.2.0"
 junit = "5.10.0"
 [libraries]
-spring-boot = {group="org.springframework.boot", name="spring-boot-starter", version.ref="spring"}
+spring-boot = {group="org.springframework.boot", name="spring-boot-starter-web", version.ref="spring"}
 junit-jupter={group="org.junit.jupiter",name="junit-jupiter-api",version.ref="junit"}

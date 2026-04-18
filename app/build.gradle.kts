@@ -7,11 +7,12 @@ plugins {
 }
 
 dependencies {
+    implementation (libs.spring.boot)
     implementation("org.apache.commons:commons-text")
     implementation(project(":utilities"))
 }
 
 application {
     // Define the main class for the application.
-    mainClass = "org.example.app.App"
+    mainClass = "com.rocha82.api.App"
 }
