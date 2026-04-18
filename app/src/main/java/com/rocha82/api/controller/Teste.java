@@ -1,4 +1,5 @@
 package com.rocha82.api.controller.Test;
+import com.rocha82.list.LinkedList;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +8,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 public class Teste{
     @GetMapping("/{id}")
     public String person(){
-        return "success";
+        LinkedList ll=new LinkedList();
+        ll.add("teste");
+        return ll.get(0);
     }
 }
