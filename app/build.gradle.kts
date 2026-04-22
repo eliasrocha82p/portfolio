@@ -3,16 +3,20 @@
  */
 
 plugins {
-    id("buildlogic.java-application-conventions")
+alias(libs.plugins.spring.boot)
+id("org.example.greeting")
+   // id("buildlogic.java-application-conventions")
+   application
 }
-
 dependencies {
-    implementation (libs.spring.boot)
-    implementation("org.apache.commons:commons-text")
-    implementation(project(":utilities"))
+    implementation (libs.spring.boot.web)
+    testImplementation(libs.junit.jupiter)
+  testRuntimeOnly(libs.junit.platform)
+//    implementation("org.apache.commons:commons-text")
+    implementation(project(":repositories"))
 }
-
+tasks.test{useJUnitPlatform()}
 application {
     // Define the main class for the application.
-    mainClass = "com.rocha82.api.App"
+    mainClass = "com.rocha82.App"
 }
