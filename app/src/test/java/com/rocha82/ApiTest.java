@@ -10,6 +10,6 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 class ApiTest {
     App app=new App();
     @Test void testGetMessage() {
-        assertEquals("H","H";
+        assertEquals("H","H");
     }
 }
