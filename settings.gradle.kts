@@ -12,4 +12,4 @@ plugins {
 rootProject.name = "portfolio"
 include("app")
 include("repositories")
-includeBuild("gradle/license-plugin")
+include("DTOs")

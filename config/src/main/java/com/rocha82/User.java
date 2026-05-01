@@ -1,5 +1,5 @@
-package com.rocha82.dto;
-public class Repository{
+package com.rocha82.dao;
+public class User{
     public String getByID(int id){
         return "Object from Repository";
     }

@@ -4,7 +4,7 @@
 
 plugins {
 alias(libs.plugins.spring.boot)
-id("org.example.greeting")
+//id("org.example.greeting")
    // id("buildlogic.java-application-conventions")
    application
 }
@@ -13,7 +13,7 @@ dependencies {
     testImplementation(libs.junit.jupiter)
   testRuntimeOnly(libs.junit.platform)
 //    implementation("org.apache.commons:commons-text")
-    implementation(project(":repositories"))
+    implementation(project(":DTOs"))
 }
 tasks.test{useJUnitPlatform()}
 application {
