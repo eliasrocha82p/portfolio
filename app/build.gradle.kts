@@ -4,6 +4,8 @@
 plugins {
     
 alias(libs.plugins.spring.boot)
+//id("org.example.greeting")
+   // id("buildlogic.java-application-conventions")
    application
 }
 dependencies {

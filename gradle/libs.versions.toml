@@ -6,7 +6,12 @@
 spring-boot="4.0.5"
 junit = "5.10.0"
 junitapi = "5.12.1"
+sqlite="3.45.1.0"
+hibernate="6.4.4"
 [libraries]
+jpa={group="org.springframework.boot",name="spring-boot-starter-data-jpa"}
+sqlite={group="org.xerial",name="sqlite-jdbc",version.ref="sqlite"}
+hibernate={group="org.hibernate.orm",name="hibernate-community-dialects",version.ref="hibernate"}
 junit-platform={group="org.junit.platform",name="junit-platform-launcher"}
 spring-boot-web = {group="org.springframework.boot", name="spring-boot-starter-web", version.ref="spring-boot"}
 junit-jupiter={group="org.junit.jupiter",name="junit-jupiter",version.ref="junit"}
