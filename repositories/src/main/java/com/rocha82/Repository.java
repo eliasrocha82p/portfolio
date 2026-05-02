@@ -1,6 +1,6 @@
 package com.rocha82.repository;
 public class Repository{
-    public String getByID(int id){
+    public String getUserByID(int id){
         return "Object from Repository";
     }
 }
