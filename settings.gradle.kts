@@ -8,7 +8,10 @@
 plugins {
     // Apply the foojay-resolver plugin to allow automatic download of JDKs
     id("org.gradle.toolchains.foojay-resolver-convention") version "1.0.0"
-}
+    
+    }
 
 rootProject.name = "portfolio"
-include("app", "list", "utilities")
+include("app")
+include("repositories")
+include("DTOs")
