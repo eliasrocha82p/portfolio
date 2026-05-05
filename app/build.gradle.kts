@@ -13,6 +13,7 @@ dependencies {
     testImplementation(libs.junit.jupiter)
   testRuntimeOnly(libs.junit.platform)
 //    implementation("org.apache.commons:commons-text")
+    implementation(project(":services"))
     implementation(project(":DTOs"))
 }
 tasks.test{useJUnitPlatform()}
