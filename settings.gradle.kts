@@ -13,5 +13,8 @@ plugins {
 
 rootProject.name = "portfolio"
 include("app")
-include("repositories")
 include("DTOs")
+include("repositories")
+include("daos")
+include("config")
+include("services")
