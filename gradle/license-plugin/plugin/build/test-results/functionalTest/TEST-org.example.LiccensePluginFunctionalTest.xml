@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="org.example.LiccensePluginFunctionalTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2026-04-21T12:30:57.654Z" hostname="localhost" time="20.632">
+  <properties/>
+  <testcase name="can run task()" classname="org.example.LiccensePluginFunctionalTest" time="20.632"/>
+  <system-out><![CDATA[
+> Task :greeting
+Hello from plugin 'org.example.greeting'
+
+BUILD SUCCESSFUL in 17s
+1 actionable task: 1 executed
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.2.0/userguide/configuration_cache_enabling.html
+]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
