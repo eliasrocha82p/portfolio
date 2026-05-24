@@ -1,0 +1,11 @@
+//./portfolio/services/build.gradle.kts
+plugins{
+    id("java-library")
+}
+dependencies{
+implementation(libs.spring.boot.jpa)
+implementation(project(":daos"))
+implementation(project(":repositories"))
+implementation(libs.spring.boot.starter)
+implementation(project(":DTOs"))
+}
