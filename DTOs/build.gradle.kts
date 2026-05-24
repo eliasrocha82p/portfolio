@@ -1,6 +1,7 @@
+//./portfolio/DTOs/build.gradle.kts
 plugins{
     id("java-library")
 }
 dependencies{
-    implementation(project(":repositories"))
+    implementation(libs.jakarta.validation)
 }
