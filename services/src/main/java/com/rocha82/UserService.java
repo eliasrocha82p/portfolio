@@ -6,6 +6,7 @@ import java.util.Optional;
 import org.springframework.stereotype.Service;
 import java.util.Optional;
 import java.util.List;
+import java.util.ArrayList;
 @Service
 public class UserService{
     UserRepository ur;
@@ -20,9 +21,12 @@ public class UserService{
         return userDTO.toString();
     }
     public String all(){
+        ArrayList<UserDTO> users = new ArrayList<>();
         List<UserModel> um=ur.findAll();
-        
-       // UserDTO userDTO = new UserDTO(um.get().getId(),um.get().getName());
-        return um.toString();
+        for(UserModel u: um){
+            //UserDTO userDTO = new UserDTO(u.get().getId(),u.get().getName());
+            users.add(new UserDTO(u.getId(),u.getName()));
+        }
+        return users.toString();
     }
 }
