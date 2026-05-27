@@ -8,6 +8,10 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
 import lombok.AllArgsConstructor;
+import java.time.Instant;
+import jakarta.persistence.Column;
+import org.hibernate.annotations.Generated;
+import org.hibernate.generator.EventType;
 
 @Entity
 @Table(name="users")
@@ -22,6 +26,27 @@ public class UserModel{
     int id;
     //String cpf,
     String name;
+    @Column(name="createdat",insertable=false,updatable=false)
+    @Generated(event=EventType.INSERT)
+    Instant createdat;
+    Instant updatedat;
+    String cpf;
+    Instant birthday;
+    String mainphonenumber;// TEXT NOT NULL,
+    String maincontact;// TEXT NOT NULL,
+    String phonenumber;// TEXT,
+    String contact;// TEXT,
+    String email;// TEXT NOT NULL UNIQUE,
+    String zipcode;
+    String street;
+    String neigborhood;
+    String city;
+    String hash;
+    String passwordhash;
+    //@PreUpdate
+    //protected onUpdate(){
+      //  this.updateat=instant.ofEpochSecond(Instant.now().getEpochSecond());
+   // }
     /* ,
     LocalDate birthday,
     LocalDateTime createdAt,
