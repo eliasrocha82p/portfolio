@@ -4,6 +4,8 @@ import jakarta.persistence.Table;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.NoArgsConstructor;
@@ -23,37 +25,32 @@ public class UserModel{
     @Id 
     @GeneratedValue (
         strategy = GenerationType.IDENTITY)
-    int id;
+    private Integer id;
     //String cpf,
-    String name;
+    private String name;
     @Column(name="createdat",insertable=false,updatable=false)
     @Generated(event=EventType.INSERT)
-    Instant createdat;
-    Instant updatedat;
-    String cpf;
-    Instant birthday;
-    String mainphonenumber;// TEXT NOT NULL,
-    String maincontact;// TEXT NOT NULL,
-    String phonenumber;// TEXT,
-    String contact;// TEXT,
-    String email;// TEXT NOT NULL UNIQUE,
-    String zipcode;
-    String street;
-    String neigborhood;
-    String city;
-    String hash;
-    String passwordhash;
-    //@PreUpdate
-    //protected onUpdate(){
-      //  this.updateat=instant.ofEpochSecond(Instant.now().getEpochSecond());
-   // }
-    /* ,
-    LocalDate birthday,
-    LocalDateTime createdAt,
-    LocalDateTime updateAt*/
-   // public UserModel{
-    //    java.util.Objects.requireNonNull(name, "Peson name can not be null");
-       // java.util.Objects.requireNonNull(cpf,"User cpf can not be null");
-  //  public UserModel(/*String cpf, */String name){
-    //    this(0,/*cpf,*/name/* ,LocalDate.ofEpochDay(0),LocalDateTime.now(),LocalDateTime.now()*/);
+    private Instant createdat;
+    private Instant updatedat;
+    private String cpf;
+    private Instant birthday;
+    private String mainphonenumber;// TEXT NOT NULL,
+    private String maincontact;// TEXT NOT NULL,
+    private String phonenumber;// TEXT,
+    private String contact;// TEXT,
+    private String email;// TEXT NOT NULL UNIQUE,
+    private String zipcode;
+    private String street;
+    private String neighborhood;
+    private String city;
+    private String passwordhash;
+    @PrePersist
+    protected void onCreate(){
+        this.createdat=Instant.now();
+        this.updatedat=Instant.now();
+    }
+    @PreUpdate
+    protected void onUpdate(){
+        this.updatedat=Instant.now();
+    }
 }
