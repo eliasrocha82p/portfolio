@@ -6,8 +6,3 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface UserRepository extends JpaRepository<UserModel, Integer> {
 }
-/*public class UserRepository{
-    public String get(long id){
-        return "string from repository";
-    }
-}*/
