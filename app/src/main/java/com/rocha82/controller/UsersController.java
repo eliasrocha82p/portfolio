@@ -4,6 +4,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import com.rocha82.service.UserService;
 import com.rocha82.dto.*;
 import org.springframework.http.ResponseEntity;
@@ -21,6 +22,12 @@ public class UsersController{
     public ResponseEntity<UserResponseDTO> create(@RequestBody UserRequestDTO user){
         UserResponseDTO userDTO = us.create(user);
         return ResponseEntity.status(HttpStatus.CREATED).body(userDTO);
+    }
+    @DeleteMapping("/delete/{id}")
+    public ResponseEntity<UserResponseDTO> delete(@PathVariable int id){
+        UserResponseDTO u=us.delete(id);
+        return ResponseEntity
+        .status(HttpStatus.OK).body(u);
     }
     @GetMapping("/{id}")
     public ResponseEntity<UserResponseDTO> findById(@PathVariable int id){
