@@ -1,32 +1,54 @@
 package com.rocha82.service;
 import com.rocha82.repository.UserRepository;
 import com.rocha82.dao.UserModel;
-import com.rocha82.dto.UserDTO;
+import com.rocha82.dto.*;
 import java.util.Optional;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 import java.util.List;
-import java.util.ArrayList;
 @Service
 public class UserService{
-    UserRepository ur;
-    public UserService(UserRepository ur){
-        this.ur = ur;
+    
+    private final UserRepository userRepository;
+    
+    public UserService(UserRepository userRepository){
+        this.userRepository = userRepository;
     }
-    public String get(int id){
-        Optional<UserModel> um=ur.findById(id);
-        if(!(um.isPresent()))
-        return "Usuário não encontrado";
-        UserDTO userDTO = new UserDTO(um.get().getId(),um.get().getName());
-        return userDTO.toString();
+    
+    private UserResponseDTO  toUserDTO(UserModel userModel){
+        return UserResponseDTO.builder()
+        .id(userModel.getId())
+        .name(userModel.getName())
+        cpf(userModel.getCpf())
+        .build();
     }
-    public String all(){
-        ArrayList<UserDTO> users = new ArrayList<>();
-        List<UserModel> um=ur.findAll();
-        for(UserModel u: um){
-            //UserDTO userDTO = new UserDTO(u.get().getId(),u.get().getName());
-            users.add(new UserDTO(u.getId(),u.getName()));
-        }
-        return users.toString();
+    public Optional<UserResponseDTO> findById(int id){
+        return userRepository.findById(id).map(this::toUserDTO);
+    }
+    public List<UserResponseDTO> findAll(){
+        return userRepository.findAll().stream().map(this::toUserDTO).toList();
+    }
+   private UserModel toUserModel(UserAbstractDTO userDTO){
+       UserModel.UserModelBuilder builder=UserModel.builder()
+       .name(userDTO.getName())
+       .cpf(userDTO.getCpf())
+       .birthday(userDTO.getBirthday())
+       .mainPhoneNumber(userDTO.getMainPhoneNumber())
+       .mainContact(userDTO.getMainContact())
+       .phoneNumber(userDTO.getPhoneNumber())
+       .contact(userDTO.getContact())
+       .email(userDTO.getEmail())
+       .zipCode(userDTO.getZipCode())
+       .street(userDTO.getStreet())
+       .neighborhood(userDTO.getNeighborhood())
+       .city(userDTO.getCity());
+       if (userDTO instanceof UserRequestDTO userRequestDTO){
+           builder.password(userRequestDTO.getPassword());
+       }
+       return builder.build();
+   }
+    public UserResponseDTO create(UserRequestDTO user){
+        UserModel savedUser=userRepository.save(toUserModel(user));
+        return toUserDTO(savedUser);
+        
     }
 }

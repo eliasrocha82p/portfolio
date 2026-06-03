@@ -4,4 +4,6 @@ plugins{
 }
 dependencies{
     implementation(libs.jakarta.validation)
+    compileOnly(libs.lombok)
+    annotationProcessor(libs.lombok)
 }
