@@ -3,6 +3,7 @@ package com.rocha82.dao;
 import jakarta.persistence.*;
 import lombok.*;
 import java.time.Instant;
+import java.time.LocalDate;
 
 @Entity
 @Table(name = "users")
@@ -16,7 +17,7 @@ public class UserModel {
 
     // O @Builder no construtor garante que o Lombok use suas validações ao buildar
     @Builder
-    private UserModel(String name, String cpf, Instant birthday, String mainPhoneNumber, 
+    private UserModel(String name, String cpf, LocalDate birthday, String mainPhoneNumber, 
                       String mainContact, String phoneNumber, String contact, String email, 
                       String zipCode, String street, String neighborhood, String city, String password) {
         setName(name);
@@ -66,7 +67,7 @@ public class UserModel {
     @Setter(AccessLevel.NONE)
     private Instant updatedAt;
 
-    private Instant birthday;
+    private LocalDate birthday;
 
     @Column(name = "mainphonenumber", nullable = false)
     private String mainPhoneNumber;

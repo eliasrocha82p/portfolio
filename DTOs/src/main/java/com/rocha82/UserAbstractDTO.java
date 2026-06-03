@@ -5,6 +5,7 @@ import lombok.experimental.SuperBuilder;
 import lombok.NoArgsConstructor;
 
 import java.time.Instant;
+import java.time.LocalDate;
 
 @Setter
 @Getter
@@ -14,7 +15,7 @@ public abstract class UserAbstractDTO{
 
     protected String name;
     protected String cpf;
-    protected Instant birthday;
+    protected LocalDate birthday;
     protected String mainPhoneNumber;
     protected String mainContact;
     protected String phoneNumber;
